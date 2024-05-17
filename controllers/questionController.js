@@ -14,7 +14,9 @@ exports.createQuestion = async (req, res) => {
 
 exports.getAllQuestions = async (req, res) => {
     try {
+        console.log("entered");
         const questions = await Question.find();
+        console.log(res.status(200).json(questions));
         res.status(200).json(questions);
     } catch (error) {
         res.status(500).json({ message: "Error getting the questions", error: error.message });
